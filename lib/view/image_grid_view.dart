@@ -5,17 +5,17 @@ class ImageGridViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Image + Name Data
+    // Local Asset Images
     final List<Map<String, String>> items = [
-      {"name": "Mountain", "image": "https://picsum.photos/id/1018/300/300"},
-      {"name": "Nature", "image": "https://picsum.photos/id/1015/300/300"},
-      {"name": "Beach", "image": "https://picsum.photos/id/1011/300/300"},
-      {"name": "River", "image": "https://picsum.photos/id/1016/300/300"},
-      {"name": "Forest", "image": "https://picsum.photos/id/1020/300/300"},
-      {"name": "City", "image": "https://picsum.photos/id/1025/300/300"},
-      {"name": "Road", "image": "https://picsum.photos/id/1035/300/300"},
-      {"name": "Flowers", "image": "https://picsum.photos/id/1040/300/300"},
-      {"name": "Sunset", "image": "https://picsum.photos/id/1050/300/300"},
+      {"name": "Travelbag", "image": "assets/images/travelbag.jpg"},
+      {"name": "shirt", "image": "assets/images/shirt.jpg"},
+      {"name": "checkshirt", "image": "assets/images/checkshirt.jpg"},
+      {"name": "Formal shirt", "image": "assets/images/formalshirt.jpg"},
+      {"name": "Travelbag", "image": "assets/images/travelbag.jpg"},
+      {"name": "shirt", "image": "assets/images/shirt.jpg"},
+      {"name": "checkshirt", "image": "assets/images/checkshirt.jpg"},
+      {"name": "Formal shirt", "image": "assets/images/formalshirt.jpg"},
+      {"name": "Travelbag", "image": "assets/images/travelbag.jpg"},
     ];
 
     return Scaffold(
@@ -30,9 +30,8 @@ class ImageGridViewScreen extends StatelessWidget {
         child: GridView.builder(
           itemCount: items.length,
 
-          // 3 × 3 Grid
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, // 3 columns
+            crossAxisCount: 3,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             childAspectRatio: 0.75,
@@ -53,15 +52,15 @@ class ImageGridViewScreen extends StatelessWidget {
               ),
 
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Image
+                  // Asset Image
                   Expanded(
                     child: ClipRRect(
                       borderRadius: const BorderRadius.vertical(
                         top: Radius.circular(15),
                       ),
-                      child: Image.network(
+
+                      child: Image.asset(
                         items[index]["image"]!,
                         width: double.infinity,
                         fit: BoxFit.cover,
@@ -72,6 +71,7 @@ class ImageGridViewScreen extends StatelessWidget {
                   // Name
                   Padding(
                     padding: const EdgeInsets.all(8.0),
+
                     child: Text(
                       items[index]["name"]!,
                       style: const TextStyle(
